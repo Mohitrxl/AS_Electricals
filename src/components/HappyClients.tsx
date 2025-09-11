@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import styles from "../components/CSS/HappyClients.module.css";
 
@@ -44,16 +44,21 @@ export default function HappyClients() {
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [cardsPerView, setCardsPerView] = useState(1); // ✅ safe default for SSR
 
-  const getCardsPerView = () => {
-    if (typeof window !== "undefined") {
-      if (window.innerWidth >= 1024) return 3; // desktop
-      if (window.innerWidth >= 768) return 2; // tablet
-    }
-    return 1; // mobile
-  };
+  // ✅ Update on client after mount
+  useEffect(() => {
+    const updateCardsPerView = () => {
+      if (window.innerWidth >= 1024) setCardsPerView(3);
+      else if (window.innerWidth >= 768) setCardsPerView(2);
+      else setCardsPerView(1);
+    };
 
-  const cardsPerView = getCardsPerView();
+    updateCardsPerView(); // run once
+    window.addEventListener("resize", updateCardsPerView);
+
+    return () => window.removeEventListener("resize", updateCardsPerView);
+  }, []);
 
   const prevSlide = () => {
     setCurrentIndex((prev) => Math.max(prev - 1, 0));
@@ -96,7 +101,6 @@ export default function HappyClients() {
                   className={styles.avatar}
                 />
                 <h3 className={styles.name}>{client.name}</h3>
-                {/* ✅ Fixed escaping issue */}
                 <p className={styles.comment}>&quot;{client.comment}&quot;</p>
               </div>
             ))}
