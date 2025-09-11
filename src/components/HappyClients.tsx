@@ -11,16 +11,40 @@ interface Client {
 
 export default function HappyClients() {
   const clients: Client[] = [
-    { img: "/assets/client1.jpg", name: "Ravi Sharma", comment: "Reliable Electrical Services transformed our office setup with a modern wiring and lighting system. Professional and safe work!" },
-    { img: "/assets/client2.jpg", name: "Anita Verma", comment: "Quick and efficient! Their smart home installation has made life so convenient. Highly recommended!" },
-    { img: "/assets/client3.jpg", name: "David Wilson", comment: "Excellent service! They provided industrial-grade solutions for our factory that boosted both safety and efficiency." },
-    { img: "/assets/client4.jpg", name: "Sophia Khan", comment: "Very responsive and professional team. Solved our electrical issue within hours. Truly reliable!" },
-    { img: "/assets/client5.jpg", name: "Arjun Patel", comment: "They gave us the best electrical panel upgrade. Our home is now much safer and energy-efficient!" },
+    {
+      img: "/assets/client1.jpg",
+      name: "Ravi Sharma",
+      comment:
+        "Reliable Electrical Services transformed our office setup with a modern wiring and lighting system. Professional and safe work!",
+    },
+    {
+      img: "/assets/client2.jpg",
+      name: "Anita Verma",
+      comment:
+        "Quick and efficient! Their smart home installation has made life so convenient. Highly recommended!",
+    },
+    {
+      img: "/assets/client3.jpg",
+      name: "David Wilson",
+      comment:
+        "Excellent service! They provided industrial-grade solutions for our factory that boosted both safety and efficiency.",
+    },
+    {
+      img: "/assets/client4.jpg",
+      name: "Sophia Khan",
+      comment:
+        "Very responsive and professional team. Solved our electrical issue within hours. Truly reliable!",
+    },
+    {
+      img: "/assets/client5.jpg",
+      name: "Arjun Patel",
+      comment:
+        "They gave us the best electrical panel upgrade. Our home is now much safer and energy-efficient!",
+    },
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  // how many cards per view depending on screen size
   const getCardsPerView = () => {
     if (typeof window !== "undefined") {
       if (window.innerWidth >= 1024) return 3; // desktop
@@ -72,7 +96,8 @@ export default function HappyClients() {
                   className={styles.avatar}
                 />
                 <h3 className={styles.name}>{client.name}</h3>
-                <p className={styles.comment}>"{client.comment}"</p>
+                {/* ✅ Fixed escaping issue */}
+                <p className={styles.comment}>&quot;{client.comment}&quot;</p>
               </div>
             ))}
           </div>
