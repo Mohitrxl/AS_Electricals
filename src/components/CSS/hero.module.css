@@ -1,6 +1,6 @@
 .hero {
   position: relative;
-  height: 85vh; /* Full screen height */
+  height: 92vh; /* Full screen height */
   width: 100%; /* Full screen width */
   background: url("/assets/LightingDesign.jpg") center center / cover no-repeat;
   display: flex;

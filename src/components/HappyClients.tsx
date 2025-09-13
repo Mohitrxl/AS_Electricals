@@ -1,7 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import styles from "../components/CSS/HappyClients.module.css";
 
 interface Client {
   img: string;
@@ -11,97 +10,74 @@ interface Client {
 
 export default function HappyClients() {
   const clients: Client[] = [
-    {
-      img: "/assets/client1.jpg",
-      name: "Ravi Sharma",
-      comment:
-        "Reliable Electrical Services transformed our office setup with a modern wiring and lighting system. Professional and safe work!",
-    },
-    {
-      img: "/assets/client2.jpg",
-      name: "Anita Verma",
-      comment:
-        "Quick and efficient! Their smart home installation has made life so convenient. Highly recommended!",
-    },
-    {
-      img: "/assets/client3.jpg",
-      name: "David Wilson",
-      comment:
-        "Excellent service! They provided industrial-grade solutions for our factory that boosted both safety and efficiency.",
-    },
-    {
-      img: "/assets/client4.jpg",
-      name: "Sophia Khan",
-      comment:
-        "Very responsive and professional team. Solved our electrical issue within hours. Truly reliable!",
-    },
-    {
-      img: "/assets/client5.jpg",
-      name: "Arjun Patel",
-      comment:
-        "They gave us the best electrical panel upgrade. Our home is now much safer and energy-efficient!",
-    },
+    { img: "/assets/safdar.png", name: "Ravi Sharma", comment: "Reliable Electrical Services transformed our office setup with a modern wiring and lighting system. Professional and safe work!" },
+    { img: "/assets/safdar.png", name: "Anita Verma", comment: "Quick and efficient! Their smart home installation has made life so convenient. Highly recommended!" },
+    { img: "/assets/safdar.png", name: "David Wilson", comment: "Excellent service! They provided industrial-grade solutions for our factory that boosted both safety and efficiency." },
+    { img: "/assets/safdar.png", name: "Sophia Khan", comment: "Very responsive and professional team. Solved our electrical issue within hours. Truly reliable!" },
+    { img: "/assets/safdar.png", name: "Arjun Patel", comment: "They gave us the best electrical panel upgrade. Our home is now much safer and energy-efficient!" },
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [cardsPerView, setCardsPerView] = useState(1); // ✅ safe default for SSR
+  const [cardsPerView, setCardsPerView] = useState(3);
 
-  // ✅ Update on client after mount
   useEffect(() => {
     const updateCardsPerView = () => {
-      if (window.innerWidth >= 1024) setCardsPerView(3);
+      if (window.innerWidth >= 1280) setCardsPerView(4);
+      else if (window.innerWidth >= 1024) setCardsPerView(3);
       else if (window.innerWidth >= 768) setCardsPerView(2);
       else setCardsPerView(1);
     };
-
-    updateCardsPerView(); // run once
+    updateCardsPerView();
     window.addEventListener("resize", updateCardsPerView);
-
     return () => window.removeEventListener("resize", updateCardsPerView);
   }, []);
 
-  const prevSlide = () => {
-    setCurrentIndex((prev) => Math.max(prev - 1, 0));
-  };
-
-  const nextSlide = () => {
-    setCurrentIndex((prev) =>
-      Math.min(prev + 1, clients.length - cardsPerView)
-    );
-  };
+  const prevSlide = () => setCurrentIndex((prev) => Math.max(prev - cardsPerView, 0));
+  const nextSlide = () => setCurrentIndex((prev) => Math.min(prev + cardsPerView, clients.length - cardsPerView));
 
   return (
-    <section id="happy-clients" className={styles.clientsSection}>
-      <h2 className={styles.heading}>😊 Happy Clients</h2>
-      <div className={styles.carousel}>
+    <section className="relative py-16 px-6 bg-black text-white overflow-hidden">
+      <h2 className="text-3xl sm:text-4xl font-extrabold text-center text-yellow-400 mb-12">
+        😊 Happy Clients
+      </h2>
+
+      <div className="flex items-center relative">
         {/* Left Button */}
         <button
-          className={`${styles.navBtn} ${styles.left}`}
+          className="bg-gray-800 text-yellow-400 hover:bg-gray-700 hover:text-white rounded-full p-2 text-2xl z-10 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
           onClick={prevSlide}
           disabled={currentIndex === 0}
         >
           ❮
         </button>
 
-        {/* Track */}
-        <div className={styles.trackWrapper}>
+        {/* Carousel Track */}
+        <div className="overflow-hidden flex-1 mx-4">
           <div
-            className={styles.track}
+            className="flex transition-transform duration-500 ease-in-out"
             style={{
-              transform: `translateX(-${currentIndex * (100 / cardsPerView)}%)`,
+              transform: `translateX(-${(currentIndex * 100) / cardsPerView}%)`,
+              width: `${(clients.length / cardsPerView) * 100}%`,
             }}
           >
             {clients.map((client, i) => (
-              <div key={i} className={styles.card}>
-                <Image
-                  src={client.img}
-                  alt={client.name}
-                  width={80}
-                  height={80}
-                  className={styles.avatar}
-                />
-                <h3 className={styles.name}>{client.name}</h3>
-                <p className={styles.comment}>&quot;{client.comment}&quot;</p>
+              <div
+                key={i}
+                className="flex-0 mx-3 bg-gray-900 rounded-lg p-4 flex flex-col items-center justify-start shadow-lg relative hover:scale-105 transition-transform"
+                style={{ flex: `0 0 ${100 / cardsPerView}%`, aspectRatio: "1 / 1" }} // square cards
+              >
+                <div className="relative w-24 h-24 mb-4 rounded-full overflow-hidden border-2 border-yellow-400 shadow-lg">
+                  <Image
+                    src={client.img}
+                    alt={client.name}
+                    width={96}
+                    height={96}
+                    className="object-cover w-full h-full"
+                  />
+                </div>
+                <h3 className="font-bold text-yellow-400 text-lg mb-2">{client.name}</h3>
+                <p className="text-gray-300 text-center text-sm">{client.comment}</p>
+                <div className="absolute top-0 left-0 w-full h-full rounded-lg border-2 border-yellow-500 opacity-0 hover:opacity-20 transition-opacity"></div>
               </div>
             ))}
           </div>
@@ -109,7 +85,7 @@ export default function HappyClients() {
 
         {/* Right Button */}
         <button
-          className={`${styles.navBtn} ${styles.right}`}
+          className="bg-gray-800 text-yellow-400 hover:bg-gray-700 hover:text-white rounded-full p-2 text-2xl z-10 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
           onClick={nextSlide}
           disabled={currentIndex >= clients.length - cardsPerView}
         >
