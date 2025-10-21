@@ -146,7 +146,7 @@
   }
 
   .imageBox {
-    min-height: auto;
+    min-height: 0;
   }
 
   .formBox {

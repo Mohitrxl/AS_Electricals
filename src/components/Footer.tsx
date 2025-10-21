@@ -19,6 +19,8 @@ export default function Footer() {
               href="https://linkedin.com/company/reliable-electrical"
               target="_blank"
               rel="noopener noreferrer"
+              title="Follow us on LinkedIn"
+              aria-label="Follow us on LinkedIn"
             >
               <FaLinkedin />
             </a>
@@ -26,6 +28,8 @@ export default function Footer() {
               href="https://instagram.com/reliableelectrical"
               target="_blank"
               rel="noopener noreferrer"
+              title="Follow us on Instagram"
+              aria-label="Follow us on Instagram"
             >
               <FaInstagram />
             </a>
@@ -33,6 +37,8 @@ export default function Footer() {
               href="https://x.com/reliableelectrical"
               target="_blank"
               rel="noopener noreferrer"
+              title="Follow us on X (Twitter)"
+              aria-label="Follow us on X (Twitter)"
             >
               <FaXTwitter />
             </a>

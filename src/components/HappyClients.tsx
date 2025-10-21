@@ -8,13 +8,46 @@ interface Client {
   comment: string;
 }
 
+import styles from "./CSS/HappyClients.module.css";
+
 export default function HappyClients() {
   const clients: Client[] = [
-    { img: "/assets/safdar.png", name: "Ravi Sharma", comment: "Reliable Electrical Services transformed our office setup with a modern wiring and lighting system. Professional and safe work!" },
-    { img: "/assets/safdar.png", name: "Anita Verma", comment: "Quick and efficient! Their smart home installation has made life so convenient. Highly recommended!" },
-    { img: "/assets/safdar.png", name: "David Wilson", comment: "Excellent service! They provided industrial-grade solutions for our factory that boosted both safety and efficiency." },
-    { img: "/assets/safdar.png", name: "Sophia Khan", comment: "Very responsive and professional team. Solved our electrical issue within hours. Truly reliable!" },
-    { img: "/assets/safdar.png", name: "Arjun Patel", comment: "They gave us the best electrical panel upgrade. Our home is now much safer and energy-efficient!" },
+    {
+      img: "/assets/safdar.png",
+      name: "Safdar Ansari",
+      comment:
+        "Reliable Electrical Services transformed our office setup with a modern wiring and lighting system. Professional and safe work!",
+    },
+    {
+      img: "/assets/safdar.png",
+      name: "Safdar Ansari",
+      comment:
+        "Reliable Electrical Services transformed our office setup with a modern wiring and lighting system. Professional and safe work!",
+    },
+    {
+      img: "/assets/safdar.png",
+      name: "Mohit mishra",
+      comment:
+        "Quick and efficient! Their smart home installation has made life so convenient. Highly recommended!",
+    },
+    {
+      img: "/assets/safdar.png",
+      name: "David Wilson",
+      comment:
+        "Excellent service! They provided industrial-grade solutions for our factory that boosted both safety and efficiency.",
+    },
+    {
+      img: "/assets/safdar.png",
+      name: "Sophia Khan",
+      comment:
+        "Very responsive and professional team. Solved our electrical issue within hours. Truly reliable!",
+    },
+    {
+      img: "/assets/safdar.png",
+      name: "Arjun Patel",
+      comment:
+        "They gave us the best electrical panel upgrade. Our home is now much safer and energy-efficient!",
+    },
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -32,52 +65,52 @@ export default function HappyClients() {
     return () => window.removeEventListener("resize", updateCardsPerView);
   }, []);
 
-  const prevSlide = () => setCurrentIndex((prev) => Math.max(prev - cardsPerView, 0));
-  const nextSlide = () => setCurrentIndex((prev) => Math.min(prev + cardsPerView, clients.length - cardsPerView));
+  const prevSlide = () =>
+    setCurrentIndex((prev) => Math.max(prev - cardsPerView, 0));
+  const nextSlide = () =>
+    setCurrentIndex((prev) =>
+      Math.min(prev + cardsPerView, clients.length - cardsPerView)
+    );
 
   return (
-    <section className="relative py-16 px-6 bg-black text-white overflow-hidden">
-      <h2 className="text-3xl sm:text-4xl font-extrabold text-center text-yellow-400 mb-12">
-        😊 Happy Clients
-      </h2>
+    <section className={styles.section}>
+      <h2 className={styles.heading}>😊 Happy Clients</h2>
 
-      <div className="flex items-center relative">
-        {/* Left Button */}
+      <div className={styles.carousel}>
         <button
-          className="bg-gray-800 text-yellow-400 hover:bg-gray-700 hover:text-white rounded-full p-2 text-2xl z-10 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
+          className={styles.navBtn}
           onClick={prevSlide}
+          aria-label="Previous clients"
           disabled={currentIndex === 0}
         >
           ❮
         </button>
 
         {/* Carousel Track */}
-        <div className="overflow-hidden flex-1 mx-4">
+        <div className={styles.cardsContainer}>
           <div
-            className="flex transition-transform duration-500 ease-in-out"
+            className={styles.cardsTrack}
             style={{
-              transform: `translateX(-${(currentIndex * 100) / cardsPerView}%)`,
-              width: `${(clients.length / cardsPerView) * 100}%`,
+              transform: `translateX(-${currentIndex * (100 / cardsPerView)}%)`,
+              width: `${clients.length * (100 / cardsPerView)}%`,
             }}
           >
             {clients.map((client, i) => (
-              <div
-                key={i}
-                className="flex-0 mx-3 bg-gray-900 rounded-lg p-4 flex flex-col items-center justify-start shadow-lg relative hover:scale-105 transition-transform"
-                style={{ flex: `0 0 ${100 / cardsPerView}%`, aspectRatio: "1 / 1" }} // square cards
-              >
-                <div className="relative w-24 h-24 mb-4 rounded-full overflow-hidden border-2 border-yellow-400 shadow-lg">
+              <div key={i} className={styles.card}>
+                <div className={styles.avatarContainer}>
                   <Image
                     src={client.img}
                     alt={client.name}
-                    width={96}
+                    width={80}
                     height={96}
-                    className="object-cover w-full h-full"
+                    className={styles.avatar}
                   />
                 </div>
-                <h3 className="font-bold text-yellow-400 text-lg mb-2">{client.name}</h3>
-                <p className="text-gray-300 text-center text-sm">{client.comment}</p>
-                <div className="absolute top-0 left-0 w-full h-full rounded-lg border-2 border-yellow-500 opacity-0 hover:opacity-20 transition-opacity"></div>
+                <h3 className={styles.name}>{client.name}</h3>
+                <p className={styles.comment} style={{ color: "#374151" }}>
+                  {client.comment}
+                </p>
+                <div className={styles.hoverOverlay}></div>
               </div>
             ))}
           </div>
@@ -85,8 +118,9 @@ export default function HappyClients() {
 
         {/* Right Button */}
         <button
-          className="bg-gray-800 text-yellow-400 hover:bg-gray-700 hover:text-white rounded-full p-2 text-2xl z-10 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
+          className={styles.navBtn}
           onClick={nextSlide}
+          aria-label="Next clients"
           disabled={currentIndex >= clients.length - cardsPerView}
         >
           ❯
