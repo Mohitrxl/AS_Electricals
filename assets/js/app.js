@@ -61,14 +61,36 @@ function initDropdowns() {
     const trigger = drop.querySelector("[data-dropdown-trigger]");
     if (!trigger) return;
 
+    // Handle click on both desktop and mobile
     trigger.addEventListener("click", (event) => {
-      const isDesktop = window.matchMedia("(min-width: 768px)").matches;
-      if (isDesktop) return;
       event.preventDefault();
+      event.stopPropagation();
       const isOpen = drop.getAttribute("data-open") === "true";
-      drop.setAttribute("data-open", String(!isOpen));
-      trigger.setAttribute("aria-expanded", String(!isOpen));
+      const newState = String(!isOpen);
+      
+      // Close other dropdowns
+      dropdowns.forEach((otherDrop) => {
+        if (otherDrop !== drop) {
+          otherDrop.setAttribute("data-open", "false");
+          const otherTrigger = otherDrop.querySelector("[data-dropdown-trigger]");
+          if (otherTrigger) otherTrigger.setAttribute("aria-expanded", "false");
+        }
+      });
+      
+      drop.setAttribute("data-open", newState);
+      trigger.setAttribute("aria-expanded", newState);
     });
+  });
+
+  // Close dropdowns when clicking outside
+  document.addEventListener("click", (event) => {
+    if (!event.target.closest("[data-dropdown]")) {
+      dropdowns.forEach((drop) => {
+        drop.setAttribute("data-open", "false");
+        const trigger = drop.querySelector("[data-dropdown-trigger]");
+        if (trigger) trigger.setAttribute("aria-expanded", "false");
+      });
+    }
   });
 }
 
