@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AS Electricals | Reliable Electrical Services</title>
+    <meta
+      name="description"
+      content="Reliable electrical solutions for residential, commercial, and industrial projects."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/main.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="logo" href="index.html">AS ELECTRICALS</a>
+        <button
+          class="menu-toggle"
+          aria-label="Toggle navigation"
+          aria-expanded="false"
+          data-nav-toggle
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <nav class="primary-nav" data-nav>
+          <ul class="nav-list">
+            <li><a href="index.html#home">Home</a></li>
+            <li><a href="index.html#about">About</a></li>
+            <li class="has-dropdown" data-dropdown>
+              <button class="nav-link" type="button" aria-expanded="false" data-dropdown-trigger>
+                Services ▾
+              </button>
+              <div class="dropdown-panel">
+                <a href="services.html">Our Services</a>
+                <a href="service-details.html">Service Details</a>
+              </div>
+            </li>
+            <li class="has-dropdown" data-dropdown>
+              <button class="nav-link" type="button" aria-expanded="false" data-dropdown-trigger>
+                Pages ▾
+              </button>
+              <div class="dropdown-panel">
+                <a href="team.html">Team</a>
+                <a href="projects.html">Projects</a>
+                <a href="pricing.html">Pricing</a>
+                <a href="faq.html">FAQ</a>
+                <a href="manufacturing.html">Manufacturing</a>
+                <a href="business-requirements.html">Business Requirements</a>
+                <a href="new-connection.html">New Connection</a>
+                <a href="careers.html">Careers</a>
+              </div>
+            </li>
+            <li class="has-dropdown" data-dropdown>
+              <button class="nav-link" type="button" aria-expanded="false" data-dropdown-trigger>
+                Blogs ▾
+              </button>
+              <div class="dropdown-panel">
+                <a href="blog.html">Blog</a>
+                <a href="blog-details.html">Blog Details</a>
+              </div>
+            </li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li>
+              <button class="theme-toggle" type="button" aria-pressed="false" data-theme-toggle>
+                <span class="theme-icon sun" aria-hidden="true">☀️</span>
+                <span class="theme-icon moon" aria-hidden="true">🌙</span>
+              </button>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero" id="home">
+        <div class="hero-slide-track">
+          <div
+            class="hero-slide"
+            data-hero-slide
+            style="background-image: url('assets/images/ResidentialWiring.webp')"
+            aria-label="Residential wiring upgrades"
+          ></div>
+          <div
+            class="hero-slide"
+            data-hero-slide
+            style="background-image: url('assets/images/CommercialProjects.webp')"
+            aria-label="Commercial electrical projects"
+          ></div>
+          <div
+            class="hero-slide"
+            data-hero-slide
+            style="background-image: url('assets/images/LightingDesign.webp')"
+            aria-label="Architectural lighting design"
+          ></div>
+          <div
+            class="hero-slide"
+            data-hero-slide
+            style="background-image: url('assets/images/SmartHome.webp')"
+            aria-label="Smart home integrations"
+          ></div>
+        </div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content" data-animate>
+          <p class="tag">Powering Your World</p>
+          <h1>Reliable Electrical Services for Every Project</h1>
+          <p>
+            From advanced residential upgrades to complex industrial solutions, AS Electricals
+            delivers safe, efficient, and future-ready electrical systems that keep your spaces
+            running.
+          </p>
+          <div class="hero-actions">
+            <a class="btn primary" href="#services">Explore Services</a>
+            <a class="btn secondary" href="#contact">Contact Us</a>
+          </div>
+        </div>
+        <div class="hero-controls">
+          <button type="button" aria-label="Previous slide" data-hero-prev>‹</button>
+          <button type="button" aria-label="Next slide" data-hero-next>›</button>
+        </div>
+        <div class="hero-dots" role="tablist" aria-label="Hero slider controls">
+          <button type="button" aria-label="Show slide 1" data-hero-dot></button>
+          <button type="button" aria-label="Show slide 2" data-hero-dot></button>
+          <button type="button" aria-label="Show slide 3" data-hero-dot></button>
+          <button type="button" aria-label="Show slide 4" data-hero-dot></button>
+        </div>
+        <button
+          class="hero-scroll"
+          type="button"
+          aria-label="Scroll to services"
+          data-scroll-target="#services"
+        >
+          ↓
+        </button>
+      </section>
+
+      <section class="section" id="services">
+        <div class="container">
+          <div class="section-heading" data-animate>
+            <p class="eyebrow">Services</p>
+            <h2>Our expertise covers every electrical challenge</h2>
+            <p>
+              We blend safety, innovation, and reliability to deliver electrical solutions tailored to
+              residential, commercial, and industrial environments.
+            </p>
+          </div>
+          <div class="services-grid">
+            <article class="service-card" data-animate>
+              <div class="service-image">
+                <img src="assets/images/ResidentialWiring.webp" alt="Residential wiring" />
+              </div>
+              <div class="service-body">
+                <div class="service-icon">🏠</div>
+                <h3>Residential Wiring</h3>
+                <p data-expand-target="service-1">
+                  Safe residential wiring ensures occupant safety, energy efficiency, and long system
+                  life. We plan layouts, use ISI-certified materials, and install RCCBs and MCBs for
+                  peace of mind.
+                </p>
+                <div class="card-actions">
+                  <a class="link-btn" href="service-details.html#residential">Learn More →</a>
+                  <button class="pill-btn" type="button" data-expand="service-1">Read More</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="service-card" data-animate>
+              <div class="service-image">
+                <img src="assets/images/CommercialProjects.webp" alt="Commercial projects" />
+              </div>
+              <div class="service-body">
+                <div class="service-icon">🏢</div>
+                <h3>Commercial Projects</h3>
+                <p data-expand-target="service-2">
+                  Businesses demand resilient power distribution, emergency backups, and smart energy
+                  monitoring. Our engineers design systems that meet code compliance and minimize
+                  downtime.
+                </p>
+                <div class="card-actions">
+                  <a class="link-btn" href="service-details.html#commercial">Learn More →</a>
+                  <button class="pill-btn" type="button" data-expand="service-2">Read More</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="service-card" data-animate>
+              <div class="service-image">
+                <img src="assets/images/industrialSolutions.webp" alt="Industrial solutions" />
+              </div>
+              <div class="service-body">
+                <div class="service-icon">🏭</div>
+                <h3>Industrial Solutions</h3>
+                <p data-expand-target="service-3">
+                  High-load plants rely on redundancy, surge protection, automation, and SCADA
+                  monitoring. We engineer scalable systems with renewable integration to keep
+                  factories efficient.
+                </p>
+                <div class="card-actions">
+                  <a class="link-btn" href="service-details.html#industrial">Learn More →</a>
+                  <button class="pill-btn" type="button" data-expand="service-3">Read More</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="service-card" data-animate>
+              <div class="service-image">
+                <img src="assets/images/MaintenanceRepair.webp" alt="Maintenance and repair" />
+              </div>
+              <div class="service-body">
+                <div class="service-icon">🛠️</div>
+                <h3>Maintenance &amp; Repair</h3>
+                <p data-expand-target="service-4">
+                  Predictive maintenance, CMMS tools, and rapid troubleshooting keep facilities
+                  running. Our teams diagnose faults quickly, reduce downtime, and extend asset life.
+                </p>
+                <div class="card-actions">
+                  <a class="link-btn" href="service-details.html#maintenance">Learn More →</a>
+                  <button class="pill-btn" type="button" data-expand="service-4">Read More</button>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="gallery">
+        <div class="container">
+          <div class="section-heading" data-animate>
+            <p class="eyebrow">Gallery</p>
+            <h2>Current services tailored for you</h2>
+            <p>A quick look at scopes we deliver—from smart upgrades to precision maintenance.</p>
+          </div>
+          <div class="gallery-grid">
+            <article class="gallery-card" data-animate>
+              <img src="assets/images/RepairsInstallation.webp" alt="Repairs and installation" />
+              <div class="content">
+                <h3>Repairs &amp; Installation</h3>
+                <p data-expand-target="gallery-1">
+                  Quick, safe fixes and reliable new installations for homes, offices, and industries.
+                  Our certified electricians ensure everything is wired securely.
+                </p>
+                <button class="pill-btn" type="button" data-expand="gallery-1">Read More</button>
+              </div>
+            </article>
+            <article class="gallery-card" data-animate>
+              <img src="assets/images/LightingDesign.webp" alt="Lighting design" />
+              <div class="content">
+                <h3>Lighting Design</h3>
+                <p data-expand-target="gallery-2">
+                  Modern, energy-efficient lighting plans tailored to your space. From ambience to
+                  task lighting, we design solutions that enhance comfort and savings.
+                </p>
+                <button class="pill-btn" type="button" data-expand="gallery-2">Read More</button>
+              </div>
+            </article>
+            <article class="gallery-card" data-animate>
+              <img src="assets/images/SmartHome.webp" alt="Smart home systems" />
+              <div class="content">
+                <h3>Smart Home Systems</h3>
+                <p data-expand-target="gallery-3">
+                  Automate lighting, security, and energy with advanced smart systems. Control devices
+                  remotely and monitor energy usage with ease.
+                </p>
+                <button class="pill-btn" type="button" data-expand="gallery-3">Read More</button>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="about">
+        <div class="container">
+          <div class="section-heading" data-animate>
+            <p class="eyebrow">About</p>
+            <h2>Trusted expertise, future-ready delivery</h2>
+            <p>
+              With decades of combined experience, we execute residential, commercial, and industrial
+              projects with absolute focus on safety, innovation, and client delight.
+            </p>
+          </div>
+          <div class="about-values">
+            <article class="value-card" data-animate>
+              <h3>Safety First</h3>
+              <p>Strict adherence to national and international electrical standards.</p>
+            </article>
+            <article class="value-card" data-animate>
+              <h3>Innovation</h3>
+              <p>Smart automation, energy analytics, and sustainable system design.</p>
+            </article>
+            <article class="value-card" data-animate>
+              <h3>Reliability</h3>
+              <p>24/7 support teams with rapid response for emergency service calls.</p>
+            </article>
+            <article class="value-card" data-animate>
+              <h3>Sustainability</h3>
+              <p>Eco-friendly solutions, solar integration, and energy optimization.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section testimonial-section" id="clients">
+        <div class="container">
+          <div class="section-heading" data-animate>
+            <p class="eyebrow">Testimonials</p>
+            <h2>Happy clients across sectors</h2>
+            <p>Real stories from customers who trust us with their most critical projects.</p>
+          </div>
+          <div class="testimonial-carousel" data-carousel>
+            <button class="carousel-nav" type="button" aria-label="Previous" data-carousel-prev>
+              ❮
+            </button>
+            <div class="carousel-window">
+              <div class="carousel-track" data-carousel-track>
+                <article class="testimonial-card">
+                  <img src="assets/images/safdar.png" alt="Safdar Ansari" />
+                  <h3>Safdar Ansari</h3>
+                  <p>
+                    “AS Electricals modernized our office with seamless wiring and smart lighting.
+                    Professional, tidy, and on schedule.”
+                  </p>
+                </article>
+                <article class="testimonial-card">
+                  <img src="assets/images/safdar.png" alt="Mohit Mishra" />
+                  <h3>Mohit Mishra</h3>
+                  <p>
+                    “Their smart home automation keeps everything under control from one dashboard.
+                    Super convenient and energy efficient.”
+                  </p>
+                </article>
+                <article class="testimonial-card">
+                  <img src="assets/images/safdar.png" alt="David Wilson" />
+                  <h3>David Wilson</h3>
+                  <p>
+                    “Excellent industrial execution. Redundant feeds and SCADA monitoring keep our
+                    plant running round the clock.”
+                  </p>
+                </article>
+                <article class="testimonial-card">
+                  <img src="assets/images/safdar.png" alt="Sophia Khan" />
+                  <h3>Sophia Khan</h3>
+                  <p>
+                    “Responsive support that solved a major electrical issue within hours. Highly
+                    recommended.”
+                  </p>
+                </article>
+                <article class="testimonial-card">
+                  <img src="assets/images/safdar.png" alt="Arjun Patel" />
+                  <h3>Arjun Patel</h3>
+                  <p>
+                    “Panel upgrades and energy monitoring lowered our bills and improved safety for the
+                    whole building.”
+                  </p>
+                </article>
+              </div>
+            </div>
+            <button class="carousel-nav" type="button" aria-label="Next" data-carousel-next>
+              ❯
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section class="section contact-section" id="contact">
+        <div class="container contact-wrapper">
+          <div class="contact-image" data-animate>
+            <img src="assets/images/SmartHome.webp" alt="Contact AS Electricals" />
+          </div>
+          <div class="contact-card" data-animate>
+            <h2>Let’s work together ⚡</h2>
+            <p>
+              Have a project in mind or need our electrical services? Fill out the form and we’ll get
+              back to you shortly.
+            </p>
+            <form class="contact-form" data-contact-form>
+              <input type="text" name="name" placeholder="Your Full Name" required />
+              <input type="email" name="email" placeholder="Your Email Address" required />
+              <textarea name="message" rows="5" placeholder="Your Message"></textarea>
+              <button class="btn primary" type="submit">Send Message</button>
+              <p class="contact-status" data-form-status hidden role="status"></p>
+            </form>
+            <div class="contact-info">
+              <p>📧 support@reliableelectrical.com</p>
+              <p>📞 +91 9876543210</p>
+              <p>📍 456 Elm St, IL 62704, Dhaka</p>
+              <p>🕒 Sun - Mon: 9AM - 5PM</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div class="footer-column">
+          <h3 class="logo">Reliable Electrical Services</h3>
+          <p>You can trust expert electrical solutions for homes and businesses.</p>
+          <div class="social-links">
+            <a href="https://linkedin.com/company/reliable-electrical" target="_blank" rel="noreferrer"
+              >in</a
+            >
+            <a href="https://instagram.com/reliableelectrical" target="_blank" rel="noreferrer">IG</a>
+            <a href="https://x.com/reliableelectrical" target="_blank" rel="noreferrer">X</a>
+          </div>
+        </div>
+        <div class="footer-column">
+          <h4>Pages</h4>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="#">Terms &amp; Conditions</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>Contact</h4>
+          <p>(123) 456-789</p>
+          <p>domain@example.com</p>
+          <p>456 Elm St, IL 62704, Dhaka</p>
+        </div>
+      </div>
+      <div class="container footer-bottom">
+        <p>© <span data-current-year></span> Reliable Electrical Services From AS Electricals & all rights reserved.</p>
+        <!-- <p>Developed by <strong>Safdar Ansari</strong></p> -->
+      </div>
+    </footer>
+
+    <script src="assets/js/app.js" defer></script>
+  </body>
+</html>
+
